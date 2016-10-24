@@ -1,0 +1,964 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>DBA</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+</head>
+<body>
+
+<div class="container">
+  <h2>Panel de Administración</h2>
+  <ul class="nav nav-tabs">
+    <li class="active"><a data-toggle="tab" href="#home">Home</a></li>
+    <li><a data-toggle="tab" href="#menu1">Empleado</a></li>
+    <li><a data-toggle="tab" href="#menu2">Usuario</a></li>
+    <li><a data-toggle="tab" href="#menu3">Pelicula</a></li>
+    <li><a data-toggle="tab" href="#menu4">Funcion</a></li>
+    <li class="dropdown">
+      <a class="dropdown-toggle" data-toggle="dropdown" href="#">Alimentos<span class="caret"></span></a>
+      <ul class="dropdown-menu">
+        <li><a data-toggle="tab" href="#menu5">Paquete</a></li>
+        <li><a data-toggle="tab" href="#menu6">Producto</a></li>
+      </ul>
+    </li>
+  </ul>
+
+  <div class="tab-content">
+    <div id="home" class="tab-pane fade in active">
+      <h3>HOME</h3>
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+    </div>
+
+<!--*******************************************************************************************************-->
+<!--*******************************************************************************************************-->
+
+    <div id="menu1" class="tab-pane fade">
+      <h3>Menu 1</h3>
+      <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+      <div class="row">
+        <!--buton para buscar usuario-->
+        <div class="col-sm-4">
+          <br>
+          <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#demoEmpleadoBuscar" id="buscarEmpleadoBtn">Buscar Empleado</button>
+        </div>
+        <!--//buton para agregar usuario-->
+        <div class="col-sm-4">
+          <br>
+          <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#demoEmpleadoAgregar" id="agregarEmpleadoBtn">Agregar Empleado</button>
+        </div>
+      </div>
+
+      <br><br><br>
+      <div class="row">
+        <div class="container">
+          <div id="demoEmpleadoBuscar" class="collapse">
+            <form class="form-horizontal">
+
+              <div class="form-group">
+                <label class="control-label col-sm-2" for="campoTipoEmpleado">Campo especifico:</label>
+                <div class="col-sm-3">
+                  <select class="form-control" id="campoTipoBusqueda" name="campoTipoBusqueda">
+                    <option value="0">Todas</option>
+                    <option value="1">ID</option>
+                    <option value="2">Tipo empleado</option>
+                    <option value="3">Nombre</option>
+                    <option value="4">Apellido paterno</option>
+                    <option value="5">Apellido materno</option>
+                    <option value="6">Email</option>
+                  </select>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label class="control-label col-sm-2" for="pwd">Estatus:</label>
+                  <div class="col-sm-3">
+                    <select class="form-control" id="campoEstadoEmpleado" name="campoBuscarEmpleado">
+                      <option value="3">Ambos</option>
+                      <option value="1">Activos</option>
+                      <option value="0">Inactivos</option>
+                    </select>
+                    </div>
+                  </div>
+                <div class="form-group">
+                  <label class="control-label col-sm-2" for="campoEntradaEmpleado">***</label>
+                  <div class="col-sm-3">
+                    <input type="text" class="form-control" id="campoEntradaEmpleado" name="campoEntradaEmpleado" placeholder="">
+                  </div>
+                </div>
+            </form>
+            <div id="resultadoBusqueda">
+            </div>
+
+
+          </div>
+
+          <div id="demoEmpleadoAgregar" class="collapse">
+            <form class="form-horizontal" id="formAgregarEmpleado">
+              <div class="form-group">
+                <label class="control-label col-sm-2" for="idEmpleado">ID:</label>
+                <div class="col-sm-3">
+                  <input type="text" class="form-control" id="idEmpleado" name="idEmpleado" placeholder="">
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="control-label col-sm-2" for="pwd">Tipo Empleado:</label>
+                <div class="col-sm-3">
+                  <select class="form-control" id="tipoEmpleado" name="tipoEmpleado">
+                    <option value="DBA">DBA</option>
+                    <option value="Gerente">Gerente</option>
+                    <option value="Punto de venta Boleto">Punto de venta Boleto</option>
+                    <option value="Punto de venta alimento">Punto de venta alimentos</option>
+                  </select>
+                </div>
+
+              </div>
+                <div class="form-group">
+                  <label class="control-label col-sm-2" for="nombreEmpleado">Nombre:</label>
+                  <div class="col-sm-3">
+                    <input type="text" class="form-control" id="nombreEmpleado" name="nombreEmpleado" placeholder="">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="control-label col-sm-2" for="apEmpleado">Apellido Paterno:</label>
+                  <div class="col-sm-3">
+                    <input type="text" class="form-control" id="apEmpleado" name="apEmpleado" placeholder="">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="control-label col-sm-2" for="amEmpleado">Apellido Matenro:</label>
+                  <div class="col-sm-3">
+                    <input type="text" class="form-control" id="amEmpleado" name="amEmpleado" placeholder="">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="control-label col-sm-2" for="emailEmpleado">Email:</label>
+                  <div class="col-sm-3">
+                    <input type="text" class="form-control" id="emailEmpleado" name="emailEmpleado" placeholder="">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="control-label col-sm-2" for="passwordEmpleado">Contraseña:</label>
+                  <div class="col-sm-3">
+                    <input type="password" class="form-control" id="passwordEmpleado" name="paswordEmpleado" placeholder="">
+                  </div>
+                </div>
+              <div class="form-group">
+                <div class="col-sm-offset-2 col-sm-10">
+                 <button type="button" class="btn btn-default" id="agregarEmpleadoBtnFin">Finalizar</button>
+                </div>
+              </div>
+            </form>
+          </div>
+
+<!--***********************************MODAL PARA MODIFCAR AL EMPLEADO*************************************************--->
+          <div id="myModal" class="modal fade" role="dialog">
+            <div class="modal-dialog">
+
+              <!-- Modal content-->
+              <div class="modal-content">
+                <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal">&times;</button>
+                  <h4 class="modal-title">Modifica empleado</h4>
+                </div>
+                <div class="modal-body">
+                    <label for="modificaNombre">Nombre:</label>
+                    <input type="text" class="form-control" id="campoModificaNombre">
+
+                    <label for="modificaAP">Apellido paterno:</label>
+                    <input type="text" class="form-control" id="campoModificaAP">
+
+                    <label for="modificaAM">Apellido materno:</label>
+                    <input type="text" class="form-control" id="campoModificaAM">
+
+                    <label for="modificaEmail">Email:</label>
+                    <input type="text" class="form-control" id="campoModificaEmail">
+
+                    <label for="sel1">Tipo empleado:</label>
+                      <select class="form-control" id="campoModificaTipoEmpleado">
+                        <option value="DBA">DBA</option>
+                        <option value="Gerente">Gerente</option>
+                        <option value="Punto de venta Boletos">Punto de venta Boleto</option>
+                        <option value="Punto de venta de alimentos">Punto de venta de alimentos</option>
+                      </select>
+                      <br>
+                      <button type="button" class="btn btn-default" id="modificaEmpleadoFinalBtn">Modifica</button>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                </div>
+              </div>
+
+            </div>
+          </div>
+<!--***********************************MODAL PARA MODIFCAR AL EMPLEADO*************************************************--->
+
+
+        </div>
+      </div>
+    </div>
+
+
+<!--*******************************************************************************************************--->
+<!--*******************************************************************************************************--->
+
+    <div id="menu2" class="tab-pane fade">
+
+      <h3>Menu 2</h3>
+      <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.</p>
+      <div class="row">
+          <!--buton para buscar usuario-->
+        <div class="col-sm-4">
+          <br>
+          <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#demoUsuarioBuscar" id="buscarUsuarioBtn">Buscar Usuario</button>
+        </div>
+          <!--//buton para agregar usuario-->
+        <div class="col-sm-4">
+          <br>
+          <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#demoUsuarioAgregar"  id="agregarUsuarioBtn">Agregar Usuario</button>
+        </div>
+      </div>
+
+
+      <br><br><br>
+      <div class="row">
+        <div class="container">
+
+          <div id="demoUsuarioBuscar" class="collapse">
+            <form class="form-horizontal">
+
+              <div class="form-group">
+                <label class="control-label col-sm-2" for="campoTipoBusquedaUs">Campo específico:</label>
+                <div class="col-sm-3">
+                  <select class="form-control" id="campoTipoBusquedaUs" name="campoTipoBusquedaUs">
+                    <option value="0">Todas</option>
+                    <option value="1">ID</option>
+                    <option value="2">Tipo usuario</option>
+                    <option value="3">Nombre</option>
+                    <option value="4">Apellido paterno</option>
+                    <option value="5">Apellido materno</option>
+                    <option value="6">Email</option>
+                  </select>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label class="control-label col-sm-2" for="pwd">Estatus:</label>
+                  <div class="col-sm-3">
+                    <select class="form-control" id="campoEstadoUsuario" name="campoEstadoUsuario">
+                      <option value="3">Ambos</option>
+                      <option value="1">Activos</option>
+                      <option value="0">Inactivos</option>
+                    </select>
+                    </div>
+                  </div>
+                <div class="form-group">
+                  <label class="control-label col-sm-2" for="campoEntradaUsuario">***</label>
+                  <div class="col-sm-3">
+                    <input type="text" class="form-control" id="campoEntradaUsuario" name="campoEntradaUsuario" placeholder="">
+                  </div>
+                </div>
+            </form>
+            <div id="resultadoBusquedaUsuarios">
+            </div>
+
+
+          </div>
+
+
+          <div id="demoUsuarioAgregar" class="collapse">
+                      <form class="form-horizontal" id="formAgregarUsuario">
+                        <div class="form-group">
+                          <label class="control-label col-sm-2" for="idUsuario">ID:</label>
+                          <div class="col-sm-3">
+                            <input type="text" class="form-control" id="idUsuario" name="idUsuario" placeholder="">
+                          </div>
+                        </div>
+                        <div class="form-group">
+                          <label class="control-label col-sm-2" for="pwd">Tipo Usuario:</label>
+                          <div class="col-sm-3">
+                            <select class="form-control" name="tipoUsuario">
+                              <option value="Black">Black</option>
+                              <option value="Cine Club">Cine Club</option>
+                              <option value="Fan">Fan</option>
+                              <option value="Fanático Club">Fanático Club</option>
+                              <option value="Golden">Golden</option>
+                              <option value="Silver">Silver</option>
+                              <option value="Super Fanático">Super Fanático</option>
+                            </select>
+                          </div>
+                        </div>
+                        <div class="form-group">
+                          <label class="control-label col-sm-2" for="nombreUsuario">Nombre:</label>
+                          <div class="col-sm-3">
+                            <input type="text" class="form-control" id="nombreUsuario" name="nombreUsuario" placeholder="">
+                          </div>
+                        </div>
+                        <div class="form-group">
+                          <label class="control-label col-sm-2" for="apPaternoUsuario">Apellido Paterno:</label>
+                          <div class="col-sm-3">
+                            <input type="text" class="form-control" id="apPaternoUsuario" name="apPaternoUsuario" placeholder="">
+                          </div>
+                        </div>
+                        <div class="form-group">
+                          <label class="control-label col-sm-2" for="apMaternoUsuario">Apellido Materno:</label>
+                          <div class="col-sm-3">
+                            <input type="text" class="form-control" id="apMaternoUsuario" name="apMaternoUsuario" placeholder="">
+                          </div>
+                        </div>
+                        <div class="form-group">
+                          <label class="control-label col-sm-2" for="emailUsuario">Email:</label>
+                          <div class="col-sm-3">
+                            <input type="email" class="form-control" id="emailUsuario" name="emailUsuario" placeholder="">
+                          </div>
+                        </div>
+                        <div class="form-group">
+                          <label class="control-label col-sm-2" for="paswordUsuario">Contraseña:</label>
+                          <div class="col-sm-3">
+                            <input type="password" class="form-control" id="passwordUsuario" name="passwordUsuario" placeholder="">
+                          </div>
+                        </div>
+                        <div class="form-group">
+                          <div class="col-sm-offset-2 col-sm-10">
+                           <button type="button" class="btn btn-default" id="agregarUsuarioBtnFin">Finalizar</button>
+                          </div>
+                        </div>
+                      </form>
+                    </div>
+
+          <!--***********************************MODAL PARA MODIFCAR AL USUARIO*************************************************--->
+          <div id="myModalUs" class="modal fade" role="dialog">
+              <div class="modal-dialog">
+                      <!-- Modal content-->
+                                  <div class="modal-content">
+                                    <div class="modal-header">
+                                      <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                      <h4 class="modal-title">Modifica usuario</h4>
+                                    </div>
+                                    <div class="modal-body">
+                                        <label for="modificaNombre">Nombre:</label>
+                                        <input type="text" class="form-control" id="campoModificaNombreUs">
+
+                                        <label for="modificaAP">Apellido paterno:</label>
+                                        <input type="text" class="form-control" id="campoModificaAPUs">
+
+                                        <label for="modificaAM">Apellido materno:</label>
+                                        <input type="text" class="form-control" id="campoModificaAMUs">
+
+                                        <label for="modificaEmail">Email:</label>
+                                        <input type="email" class="form-control" id="campoModificaEmailUs">
+
+                                        <label for="modificaPass">Contraseña:</label>
+                                        <input type="text" class="form-control" id="campoModificaPassUs">
+
+                                        <label for="sel1">Tipo usuario:</label>
+                                          <select class="form-control" id="campoModificaTipoUsuario" placeholder="">
+                                            <option value="">-Selecciona-</option>
+                                            <option value="Black">Black</option>
+                                            <option value="Cine Club">Cine Club</option>
+                                            <option value="Fan">Fan</option>
+                                            <option value="Fanático Club">Fanático Club</option>
+                                            <option value="Golden">Golden</option>
+                                            <option value="Silver">Silver</option>
+                                            <option value="Super Fanático">Super Fanático</option>
+                                          </select>
+                                          <br>
+                                          <button type="button" class="btn btn-default" id="modificaUsuarioFinalBtn">Modifica</button>
+                                    </div>
+                                    <div class="modal-footer">
+                                      <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                                    </div>
+                                  </div>
+                    </div>
+          </div>
+          <!--***********************************MODAL PARA MODIFCAR AL USUARIO*************************************************--->
+
+
+
+
+
+
+
+        </div>
+      </div>
+  </div>
+
+<!--*******************************************************************************************************--->
+<!--*******************************************************************************************************--->
+
+    <div id="menu3" class="tab-pane fade">
+      <h3>Gestion de Peliculas</h3>
+      <p>Informacion detallada de las peliculas</p>
+
+      <div class="row">
+        <!--buton para buscar usuario-->
+        <div class="col-sm-4">
+          <br>
+          <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#demoPeliculaBuscar" id="buscarPeliculaBtn">Buscar Peliculas</button>
+        </div>
+        <!--//buton para agregar usuario-->
+        <div class="col-sm-4">
+          <br>
+          <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#demoPeliculaAgregar" id="agregarPeliculaBtn">Agregar Peliculas</button>
+        </div>
+      </div>
+
+      <br><br><br>
+      <div class="row">
+        <div class="container">
+          <div id="demoPeliculaBuscar" class="collapse">
+            <form class="form-horizontal" id="formAgregarPelicula">
+              <div class="form-group">
+                <label class="control-label col-sm-2" for="pwd">Qriterio de busqueda:</label>
+                <div class="col-sm-3">
+                  <select class="form-control" id="campoBuscarPelicula" name="campoBuscarPelicula">
+                    <option value="0">Todos los campos</option>
+                    <option value="1">ID</option>
+                    <option value="2">Nombre</option>
+                    <option value="3">Genero</option>
+                    <option value="4">Clasificacion</option>
+                  </select>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="control-label col-sm-2" for="pwd">Estado de la pelicula:</label>
+                  <div class="col-sm-3">
+                    <select class="form-control" id="campoEstadoPelicula" name="campoEstadoPelicula">
+                      <option value="0">Todas</option>
+                      <option value="1">Disponibles</option>
+                      <option value="2">Proximas</option>
+					  <option value="3">Anteriores</option>
+                    </select>
+                    </div>
+                  </div>
+                <div class="form-group">
+                  <label class="control-label col-sm-2" for="pwd">Busqueda:</label>
+                  <div class="col-sm-3">
+                    <input type="text" class="form-control" id="campoEntradaPelicula" name="campoEntradaPelicula" placeholder="">
+                  </div>
+                </div>
+            </form>
+            <div id="resultadoBusquedaPeliculas">
+
+            </div>
+          </div>
+
+          <div id="demoPeliculaAgregar" class="collapse">
+            <form class="form-horizontal" id="formAgregarPelicua" >
+              <div class="form-group">
+                <label class="control-label col-sm-2" for="nombrePelicula">Nombre:</label>
+                <div class="col-sm-3">
+                  <input type="text" class="form-control" id="nombrePelicula" name="nombrePelicula" maxlength="30">
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="control-label col-sm-2" for="clasificacionPelicula">Clasificación:</label>
+                <div class="col-sm-3">
+                  <select class="form-control" id="clasificacionPelicula" name="clasificacionPelicula">
+                    <option value="A">  A</option>
+                    <option value="B">  B</option>
+                    <option value="B15">B15</option>
+                    <option value="C">  C</option>
+                    <option value="D">  D</option>
+					<option value="S/C">S/C</option>
+                  </select>
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="control-label col-sm-2" for="generoPelicula">Genero:</label>
+                <div class="col-sm-3">
+                  <select class="form-control" id="generoPelicula" name="generoPelicula">
+                    <option value="Accion">Accion</option>
+                    <option value="Arte">Arte</option>
+                    <option value="Comedia">Comedia</option>
+                    <option value="Documental">Documental</option>
+                    <option value="Drama">Drama</option>
+					<option value="Ficcion">Ficcion</option>
+					<option value="Infantil">Infantil</option>
+					<option value="Musical">Musical</option>
+					<option value="Terror">Terror</option>
+                  </select>
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="control-label col-sm-2" for="duracionPelicula">Duración:</label>
+                <div class="col-sm-3">
+                  <input type="text" class="form-control" id="duracionPelicula" name="duracionPelicula" maxlength="8">
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="control-label col-sm-2" for="sinopsisPelicula">Sinópsis:</label>
+                <div class="col-sm-10">
+                  <textarea class="form-control" rows="3" id="sinopsisPelicula" name="sinopsisPelicula" maxlength="300"></textarea>
+                </div>
+              </div>
+			  <div class="form-group">
+                <label class="control-label col-sm-2" for="fechaEstrenoPelicula">Fecha Estreno:</label>
+                <div class="col-sm-3">
+                  <input type="date" class="form-control" id="fechaEstrenoPelicula" name="fechaEstrenoPelicula" >
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="control-label col-sm-2" for="fechaTerminoPelicula">Fecha Termino:</label>
+                <div class="col-sm-3">
+                  <input type="date" class="form-control" id="fechaTerminoPelicula" name="fechaTerminoPelicula" >
+                </div>
+			  </div>
+			  <div class="form-group">	
+				<label class="control-label col-sm-2" for="estadoPelicula">Disponible:</label>
+				<div class="col-sm-3">
+					<select class="form-control" id="estadoPelicula">
+						<option value="1">Disponible</option>
+						<option value="0">No disponible</option>
+					</select>
+				</div>
+			  </div>
+              <div class="form-group">
+                <div class="col-sm-offset-2 col-sm-10">
+                 <button type="button" class="btn btn-default" id="agregarPeliculaBtnFin2">Finalizar</button>
+                </div>
+              </div>
+            </form>
+          </div>
+
+<!--***********************************MODAL PARA MODIFCAR Pelicula*************************************************--->
+          <div id="myModalPeliculas" class="modal fade" role="dialog">
+            <div class="modal-dialog">
+
+              <!-- Modal content-->
+              <div class="modal-content">
+                <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal">&times;</button>
+                  <h4 class="modal-title">Modificar pelicula</h4>
+                </div>
+                <div class="modal-body">
+
+					<label class="control-label col-sm-2" for="modificaNombrePelicula">Nombre:</label>
+					<input type="text" class="form-control" id="campoModificaNombrePelicula" name="campoModificanombrePelicula" placeholder="" maxlength="30">
+
+					<label for="sel1">Clasificación:</label>
+					<select class="form-control" id="campoModificaClasificacionPelicula">
+						<option value="A">  A</option>
+						<option value="B">  B</option>
+						<option value="B15">B15</option>
+						<option value="C">  C</option>
+						<option value="D">  D</option>
+						<option value="S/C">S/C</option>
+			        </select>
+
+					<label for="sel1">Genero:</label>
+					<select class="form-control" id="campoModificaGeneroPelicula">
+						<option value="Accion">		Accion	</option>
+						<option value="Arte">		Arte	</option>
+						<option value="Comedia">	Comedia	</option>
+						<option value="Documental">	Documental</option>
+						<option value="Drama">		Drama	</option>
+						<option value="Ficcion">	Ficcion	</option>
+						<option value="Infantil">	Infantil</option>
+						<option value="Musical">	Musical	</option>
+						<option value="Terror">		Terror	</option>
+					</select>
+
+					<label class="control-label col-sm-2" for="modificaDuracionPelicula">Duración:</label>
+					<input type="text" class="form-control" id="campoModificaDuracionPelicula" name="campoModificaduracionPelicula" placeholder="">
+
+					<label class="control-label col-sm-2" for="modificaSinopsisPelicula">Sinópsis:</label>
+					<textarea class="form-control" rows="3" id="campoModificaSinopsisPelicula" name="campoModificasinopsisPelicula" maxlength="300"></textarea>
+
+					<label class="control-label col-sm-2" for="modificaFechaEstrenoPelicula">Fecha Estreno:</label>
+					<input type="date" class="form-control" id="campoModificaFechaEstrenoPelicula" name="campoModificafechaEstrenoPelicula" placeholder="">
+
+					<label class="control-label col-sm-2" for="modificaFechaTerminoPelicula">Fecha Termino:</label>
+					<input type="date" class="form-control" id="campoModificaFechaTerminoPelicula" name="campoModificafechaTerminoPelicula" placeholder="">
+
+					<label for="modificaEstadoPelicula">Genero:</label>
+					<select class="form-control" id="campoModificaEstadoPelicula">
+						<option value="1">Disponible</option>
+						<option value="0">No disponible</option>
+					</select>
+
+                    <br>
+                    <button type="button" class="btn btn-default" id="modificaPeliculaFinalBtn">Modifica</button>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                </div>
+              </div>
+
+            </div>
+          </div>
+<!--***********************************MODAL PARA MODIFCAR Pelicula*************************************************--->
+
+        </div>
+      </div>
+    </div>
+
+
+
+   <div id="menu4" class="tab-pane fade">
+      <h3>Menu 4</h3>
+      <p>Eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
+
+      <div class="row">
+        <div class="col-sm-6">
+          <form class="form-inline">
+            <div class="form-group">
+              <label for="idFuncion">ID: </label>
+              <input type="text" class="form-control" id="idFuncion">
+            </div>
+            <button type="submit" class="btn btn-default">Buscar</button>
+          </form>
+        </div>
+        <div class="col-sm-6">
+          <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#demoFuncion">Agregar Función</button>
+        </div>
+      </div>
+
+      <br><br><br>
+      <div class="row">
+        <div class="container">
+          <div id="demoFuncion" class="collapse">
+            <form class="form-horizontal" method="post" action="agregarPelicula".php>
+              <div class="form-group">
+                <label class="control-label col-sm-2" for="pwd">Película:</label>
+                <div class="col-sm-3">
+                  <select class="form-control" name="pelicula">
+                    <option value="1">Spider-Man</option>
+                    <option value="2">Thor</option>
+                    <option value="3">DeadPool</option>
+                    <option value="10">Harry Potter</option>
+                  </select>
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="control-label col-sm-2" for="pwd">Sala:</label>
+                <div class="col-sm-3">
+                  <select class="form-control" name="tipoSala">
+                    <option value="1">2D</option>
+                    <option value="2">2D</option>
+                    <option value="3">3D</option>
+                    <option value="4">IMAX</option>
+                    <option value="5">4D</option>
+                  </select>
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="control-label col-sm-2" for="pwd">Idioma:</label>
+                <div class="col-sm-3">
+                  <select class="form-control" name="idioma">
+                    <option>Inglés</option>
+                    <option>Francés</option>
+                    <option>Español</option>
+                    <option>Alemán</option>
+                    <option>Polaco</option>
+                  </select>
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="control-label col-sm-2" for="fechaFuncion">Fecha:</label>
+                <div class="col-sm-3">
+                  <input type="date" class="form-control" id="fechaFuncion" name="fechaFuncion" placeholder="">
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="control-label col-sm-2" for="horaFuncion">Hora:</label>
+                <div class="col-sm-3">
+                  <input type="time" class="form-control" id="horaFuncion" name="horaFuncion" placeholder="">
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="col-sm-offset-2 col-sm-10">
+                 <button type="submit" class="btn btn-default">Finalizar</button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+
+    <div id="menu5" class="tab-pane fade">
+      <h3>Paquete</h3>
+      <p>Eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
+
+
+	   <div class="row">
+        <!--buton para buscar usuario-->
+        <div class="col-sm-4">
+          <br>
+          <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#demoPaqueteBuscar" id="buscarPaqueteBtn">Buscar Paquete</button>
+        </div>
+        <!--//buton para agregar usuario-->
+        <div class="col-sm-4">
+          <br>
+          <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#demoPaqueteAgregar" id="agregarPaqueteBtn">Agregar Peliculas</button>
+        </div>
+      </div>
+
+      <br><br><br>
+      <div class="row">
+        <div class="container">
+			<!--Buscar Paquete-->
+			<div id="demoPaqueteBuscar" class="collapse">
+            <form class="form-horizontal">
+              <div class="form-group">
+                <label class="control-label col-sm-2" for="campoTipoPaquete">Campo especifico:</label>
+                <div class="col-sm-3">
+                  <select class="form-control" id="campoTipoBusquedaPaquete" name="campoTipoBusquedaPaquete">
+                    <option value="0">Todas</option>
+                    <option value="1">ID</option>
+                    <option value="2">Nombre</option>
+                    <option value="3">Precio</option>
+                  </select>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label class="control-label col-sm-2" for="pwd">Estatus:</label>
+                  <div class="col-sm-3">
+                    <select class="form-control" id="campoEstadoPaquete" name="campoBuscarPaquete">
+                      <option value="3">Ambos</option>
+                      <option value="1">En Venta</option>
+                      <option value="0">Descontinuados</option>
+                    </select>
+                    </div>
+                 </div>
+
+                <div class="form-group">
+                  <label class="control-label col-sm-2" for="campoEntradaPaquete">***</label>
+                  <div class="col-sm-3">
+                    <input type="text" class="form-control" id="campoEntradaPaquete" name="campoEntradaPaquete" placeholder="">
+                  </div>
+                </div>
+            </form>
+            <div id="resultadoBusquedaPaquete">
+
+            </div>
+          </div
+		<!--Agrgar Paquete-->
+           <div id="demoPaqueteAgregar" class="collapse">
+            <form class="form-horizontal" id="formAgregarPaquete">
+              <div class="form-group">
+                <label class="control-label col-sm-2" for="idPaquete">ID:</label>
+                <div class="col-sm-3">
+                  <input type="text" class="form-control" id="idPaquete" name="idPaquete" placeholder="">
+                </div>
+              </div>
+                <div class="form-group">
+                  <label class="control-label col-sm-2" for="nombrePaquete">Nombre:</label>
+                  <div class="col-sm-3">
+                    <input type="text" class="form-control" id="nombrePaquete" name="nombrePaquete" placeholder="">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="control-label col-sm-2" for="PrecioPaq">Precio</label>
+                  <div class="col-sm-3">
+                    <input type="text" class="form-control" id="PrecioPaq" name="PrecioPaq" placeholder="">
+                  </div>
+                </div>
+              <div class="form-group">
+                <div class="col-sm-offset-2 col-sm-10">
+                 <button type="button" class="btn btn-default" id="agregarPaqueteBtnFin">Finalizar</button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+		<!--***********************************MODAL PARA MODIFCAR AL PAQUETE*************************************************--->
+          <div id="myModalPaquete" class="modal fade" role="dialog">
+            <div class="modal-dialog">
+
+              <!-- Modal content-->
+              <div class="modal-content">
+                <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal">&times;</button>
+                  <h4 class="modal-title">Modifica Paquete</h4>
+                </div>
+                <div class="modal-body">
+                    <label for="modificaNombre">Nombre:</label>
+                    <input type="text" class="form-control" id="campoModificaNombrePaquete">
+
+                    <label for="modificaPrecio">Precio:</label>
+                    <input type="text" class="form-control" id="campoModificaPrecio">
+
+                      <br>
+                      <button type="button" class="btn btn-default" id="modificaPaqueteFinalBtn">Modifica</button>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                </div>
+              </div>
+
+            </div>
+          </div>
+<!--***********************************MODAL PARA MODIFCAR AL PAQUETE*************************************************--->
+      </div>
+    </div>
+
+
+
+    <div id="menu6" class="tab-pane fade">
+      <h3>Producto</h3>
+      <p>Eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
+
+
+
+      <div class="row">
+        <div class="col-sm-4">
+          <br>
+          <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#demoProductoBuscar" id="buscarProductoBtn">Buscar Producto</button>
+        </div>
+
+        <div class="col-sm-4">
+		 <br>
+          <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#demoProductoAgregar"id="agregarProductoBtn">Agregar Producto</button>
+        </div>
+      </div>
+
+      <br><br><br>
+      <div class="row">
+        <div class="container">
+
+
+		<!--Buscar Producto-->
+			<div id="demoProductoBuscar" class="collapse">
+            <form class="form-horizontal">
+              <div class="form-group">
+                <label class="control-label col-sm-2" for="campoTipoProducto">Campo especifico:</label>
+                <div class="col-sm-3">
+                  <select class="form-control" id="campoTipoBusquedaProducto" name="campoTipoBusquedaProducto">
+                    <option value="0">Todas</option>
+                    <option value="1">ID</option>
+                    <option value="2">Nombre</option>
+                    <option value="3">Precio</option>
+					<option value="4">Existencia</option>
+                  </select>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label class="control-label col-sm-2" for="pwd">Estatus:</label>
+                  <div class="col-sm-3">
+                    <select class="form-control" id="campoEstadoProducto" name="campoBuscarProducto">
+                      <option value="3">Ambos</option>
+                      <option value="1">En Venta</option>
+                      <option value="0">Descontinuados</option>
+                    </select>
+                    </div>
+                 </div>
+
+                <div class="form-group">
+                  <label class="control-label col-sm-2" for="campoEntradaProducto">***</label>
+                  <div class="col-sm-3">
+                    <input type="text" class="form-control" id="campoEntradaProducto" name="campoEntradaProducto" placeholder="">
+                  </div>
+                </div>
+            </form>
+            <div id="resultadoBusquedaProducto">
+
+            </div>
+          </div>
+
+
+		<!--Agrgar Producto-->
+          <div id="demoProductoAgregar" class="collapse">
+            <form class="form-horizontal" id="formAgregarProducto">
+              <div class="form-group">
+                <label class="control-label col-sm-2" for="idProducto">ID:</label>
+                <div class="col-sm-3">
+                  <input type="text" class="form-control" id="idProducto" name="idProducto" placeholder="">
+                </div>
+              </div>
+                <div class="form-group">
+                  <label class="control-label col-sm-2" for="nombreProducto">Nombre:</label>
+                  <div class="col-sm-3">
+                    <input type="text" class="form-control" id="nombreProducto" name="nombreProducto" placeholder="">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="control-label col-sm-2" for="precio">Precio</label>
+                  <div class="col-sm-3">
+                    <input type="text" class="form-control" id="precio" name="precio" placeholder="">
+                  </div>
+                </div>
+				<div class="form-group">
+                  <label class="control-label col-sm-2" for="existencia">Existencia</label>
+                  <div class="col-sm-3">
+                    <input type="text" class="form-control" id="existencia" name="existencia" placeholder="">
+                  </div>
+                </div>
+              <div class="form-group">
+                <div class="col-sm-offset-2 col-sm-10">
+                 <button type="button" class="btn btn-default" id="agregarProductoBtnFin">Finalizar</button>
+                </div>
+              </div>
+            </form>
+          </div>
+
+		<!--***********************************MODAL PARA MODIFCAR AL PRODUCTO*************************************************--->
+          <div id="myModalProducto" class="modal fade" role="dialog">
+            <div class="modal-dialog">
+
+              <!-- Modal content-->
+              <div class="modal-content">
+                <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal">&times;</button>
+                  <h4 class="modal-title">Modifica Producto</h4>
+                </div>
+                <div class="modal-body">
+                    <label for="modificaNombre">Nombre:</label>
+                    <input type="text" class="form-control" id="campoModificaNombreProducto">
+
+                    <label for="modificaPrecio">Precio:</label>
+                    <input type="text" class="form-control" id="campoModificaPrecioUnitario">
+
+					<label for="modificaExistencia">Existencia:</label>
+                    <input type="text" class="form-control" id="campoModificaExistencia">
+
+                      <br>
+                      <button type="button" class="btn btn-default" id="modificaProductoFinalBtn">Modifica</button>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                </div>
+              </div>
+
+            </div>
+          </div>
+		<!--***********************************MODAL PARA MODIFCAR AL PRODUCTO*************************************************--->
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+<!--*****************************************************************************-->
+<script type="text/javascript" src="agregarEmpleado.js"></script>
+<script type="text/javascript" src="buscarEmpleados.js"></script>
+
+<script type="text/javascript" src="agregarUsuario.js"></script>
+<script type="text/javascript" src="buscarUsuarios.js"></script>
+
+<script type="text/javascript" src="agregarPelicula.js"></script>
+<script type="text/javascript" src="buscarPeliculas.js"></script>
+
+<script type="text/javascript" src="agregarPaquete.js"></script>
+<script type="text/javascript" src="buscarPaquetes.js"></script>
+
+<script type="text/javascript" src="agregarProducto.js"></script>
+<script type="text/javascript" src="buscarProductos.js"></script>
+
+</body>
+</html>

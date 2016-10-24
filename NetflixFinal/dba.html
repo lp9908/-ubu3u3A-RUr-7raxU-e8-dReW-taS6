@@ -1,0 +1,942 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>DBA</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+</head>
+<body>
+
+<div class="container">
+  <h2>Panel de Administración</h2>
+  <ul class="nav nav-tabs">
+    <li class="active"><a data-toggle="tab" href="#home">Home</a></li>
+    <li class="dropdown">
+      <a class="dropdown-toggle" data-toggle="dropdown" href="#">Pelicula<span class="caret"></span></a>
+      <ul class="dropdown-menu">
+        <li><a data-toggle="tab" href="#menu1">Peliculas</a></li>
+        <li><a data-toggle="tab" href="#menu2">Generos</a></li>
+        <li><a data-toggle="tab" href="#menu3">Actores</a></li>
+        <li><a data-toggle="tab" href="#menu4">Audios</a></li>
+        <li><a data-toggle="tab" href="#menu5">Subtitulos</a></li>
+        <li><a data-toggle="tab" href="#menu6">Formatos</a></li>
+      </ul>
+    </li>
+	<li class="dropdown">
+      <a class="dropdown-toggle" data-toggle="dropdown" href="#">Cuentas<span class="caret"></span></a>
+      <ul class="dropdown-menu">
+        <li><a data-toggle="tab" href="#menu7">Cuentas</a></li>
+        <li><a data-toggle="tab" href="#menu8">Planes</a></li>
+        <li><a data-toggle="tab" href="#menu9">Tipos de cuentas</a></li>
+      </ul>
+    </li>
+  </ul>
+
+  <div class="tab-content">
+    <div id="home" class="tab-pane fade in active">
+      <h3>Principal</h3>
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+    </div>
+
+	
+	<!-- Peliculas -->
+    <div id="menu1" class="tab-pane fade">
+      <h3>Gestion de Peliculas</h3>
+      <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+      <div class="row">
+        <!--buton para buscar usuario-->
+        <div class="col-sm-4">
+          <br>
+          <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#demoPeliculaBuscar" id="buscarPeliculaBtn">Buscar Pelicula</button>
+        </div>
+        <!--//buton para agregar usuario-->
+        <div class="col-sm-4">
+          <br>
+          <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#demoPeliculaAgregar" id="agregarPelicualBtn">Agregar Pelicula</button>
+        </div>
+      </div>
+
+      <br><br><br>
+      <div class="row">
+        <div class="container">
+          <div id="demoPeliculaBuscar" class="collapse">
+            <form class="form-horizontal">
+
+              <div class="form-group">
+                <label class="control-label col-sm-2" for="campoBusquedaPelicula">Campo especifico:</label>
+                <div class="col-sm-3">
+                  <select class="form-control" id="campoBusquedaPelicula" name="campoBusquedaPelicula">
+                    <option value="0">Todas</option>
+                    <option value="1">ID</option>
+                    <option value="2">Titulo</option>
+                    <option value="3">Director</option>
+                    <option value="4">Año</option>
+                    <option value="5">Clasificacion</option>
+                  </select>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="control-label col-sm-2" for="campoEntradaPelicula">Busqueda:</label>
+                  <div class="col-sm-3">
+                    <input type="text" class="form-control" id="campoEntradaPelicula" name="campoEntradaPelicula" placeholder="">
+                  </div>
+                </div>
+            </form>
+            <div id="resultadoBusquedaPelicula">
+            </div>
+
+
+          </div>
+
+          <div id="demoPeliculaAgregar" class="collapse">
+            <form class="form-horizontal" id="formAgregarEmpleado">
+              <div class="form-group">
+                <label class="control-label col-sm-2" for="idEmpleado">ID:</label>
+                <div class="col-sm-3">
+                  <input type="text" class="form-control" id="idEmpleado" name="idEmpleado" placeholder="">
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="control-label col-sm-2" for="pwd">Tipo Empleado:</label>
+                <div class="col-sm-3">
+                  <select class="form-control" id="tipoEmpleado" name="tipoEmpleado">
+                    <option value="DBA">DBA</option>
+                    <option value="Gerente">Gerente</option>
+                    <option value="Punto de venta Boleto">Punto de venta Boleto</option>
+                    <option value="Punto de venta alimento">Punto de venta alimentos</option>
+                  </select>
+                </div>
+
+              </div>
+                <div class="form-group">
+                  <label class="control-label col-sm-2" for="nombreEmpleado">Nombre:</label>
+                  <div class="col-sm-3">
+                    <input type="text" class="form-control" id="nombreEmpleado" name="nombreEmpleado" placeholder="">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="control-label col-sm-2" for="apEmpleado">Apellido Paterno:</label>
+                  <div class="col-sm-3">
+                    <input type="text" class="form-control" id="apEmpleado" name="apEmpleado" placeholder="">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="control-label col-sm-2" for="amEmpleado">Apellido Matenro:</label>
+                  <div class="col-sm-3">
+                    <input type="text" class="form-control" id="amEmpleado" name="amEmpleado" placeholder="">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="control-label col-sm-2" for="emailEmpleado">Email:</label>
+                  <div class="col-sm-3">
+                    <input type="text" class="form-control" id="emailEmpleado" name="emailEmpleado" placeholder="">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="control-label col-sm-2" for="passwordEmpleado">Contraseña:</label>
+                  <div class="col-sm-3">
+                    <input type="password" class="form-control" id="passwordEmpleado" name="paswordEmpleado" placeholder="">
+                  </div>
+                </div>
+              <div class="form-group">
+                <div class="col-sm-offset-2 col-sm-10">
+                 <button type="button" class="btn btn-default" id="agregarEmpleadoBtnFin">Finalizar</button>
+                </div>
+              </div>
+            </form>
+          </div>
+
+          <div id="myModalPeliculas" class="modal fade" role="dialog">
+            <div class="modal-dialog">
+
+              <!-- Modal content-->
+              <div class="modal-content">
+                <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal">&times;</button>
+                  <h4 class="modal-title">Modifica empleado</h4>
+                </div>
+                <div class="modal-body">
+                    <label for="modificaNombre">Nombre:</label>
+                    <input type="text" class="form-control" id="campoModificaNombrePelicula">
+
+                    <label for="modificaAP">Director:</label>
+                    <input type="text" class="form-control" id="campoModificaDirectorPelicula">
+
+                    <label for="modificaAM">Año:</label>
+                    <input type="text" class="form-control" id="campoModificaAnioPelicula">
+
+                    <label for="modificaEmail">Duracion:</label>
+                    <input type="text" class="form-control" id="campoModificaDuracionPelicula">
+					
+					<label for="modificaEmail">Clasificacion:</label>
+                    <input type="text" class="form-control" id="campoModificaClasificacionPelicula">
+						
+                    <br>
+                    <button type="button" class="btn btn-default" id="modificaPelicuasFinalBtn">Modifica</button>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+	
+	<!-- Generos -->
+    <div id="menu2" class="tab-pane fade">
+
+      <h3>Gestion de Generos</h3>
+      <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.</p>
+      <div class="row">
+          <!--buton para buscar usuario-->
+        <div class="col-sm-4">
+          <br>
+          <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#demoGeneroBuscar" id="buscarGeneroBtn">Buscar Genero</button>
+        </div>
+          <!--//buton para agregar usuario-->
+        <div class="col-sm-4">
+          <br>
+          <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#demoGeneroAgregar"  id="agregarGeneroBtn">Agregar Genero</button>
+        </div>
+      </div>
+
+      <br><br><br>
+      <div class="row">
+        <div class="container">
+
+          <div id="demoGeneroBuscar" class="collapse">
+            <form class="form-horizontal">
+
+              <div class="form-group">
+                <label class="control-label col-sm-2" for="campoBusquedaGenero">Campo específico:</label>
+                <div class="col-sm-3">
+                  <select class="form-control" id="campoBusquedaGenero" name="campoBusquedaGenero">
+                    <option value="0">Todas</option>
+                    <option value="1">ID</option>
+                    <option value="3">Nombre</option>
+                  </select>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="control-label col-sm-2" for="campoEntradaGenero">Busqueda:</label>
+                  <div class="col-sm-3">
+                    <input type="text" class="form-control" id="campoEntradaGenero" name="campoEntradaGenero" placeholder="">
+                  </div>
+                </div>
+            </form>
+            <div id="resultadoBusquedaGeneros">
+            </div>
+          </div>
+
+          <div id="demoGeneroAgregar" class="collapse">
+                      <form class="form-horizontal" id="formAgregarUsuario">
+                        <div class="form-group">
+                          <label class="control-label col-sm-2" for="nombreUsuario">Nombre:</label>
+                          <div class="col-sm-3">
+                            <input type="text" class="form-control" id="nombreUsuario" name="nombreUsuario" placeholder="">
+                          </div>
+                        </div>
+                        <div class="form-group">
+                          <div class="col-sm-offset-2 col-sm-10">
+                           <button type="button" class="btn btn-default" id="agregarUsuarioBtnFin">Finalizar</button>
+                          </div>
+                        </div>
+                      </form>
+                    </div>
+
+          <div id="myModalGenero" class="modal fade" role="dialog">
+              <div class="modal-dialog">
+                      <!-- Modal content-->
+                                  <div class="modal-content">
+                                    <div class="modal-header">
+                                      <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                      <h4 class="modal-title">Modifica usuario</h4>
+                                    </div>
+                                    <div class="modal-body">
+                                        <label for="modificaNombre">Nombre:</label>
+                                        <input type="text" class="form-control" id="campoModificaNombreGenero">
+										<br>
+                                        <button type="button" class="btn btn-default" id="modificaGeneroFinalBtn">Modifica</button>
+                                    </div>
+                                    <div class="modal-footer">
+                                      <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                                    </div>
+                                  </div>
+              </div>
+          </div>
+        
+        </div>
+      </div>
+    </div>
+
+
+	<!-- Actores -->
+    <div id="menu3" class="tab-pane fade">
+      <h3>Gestion de Actores</h3>
+      <p>Informacion detallada de las peliculas</p>
+      <div class="row">
+        <!--buton para buscar usuario-->
+        <div class="col-sm-4">
+          <br>
+          <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#demoActoresBuscar" id="buscarActoresBtn">Buscar Actores</button>
+        </div>
+        <!--//buton para agregar usuario-->
+        <div class="col-sm-4">
+          <br>
+          <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#demoActoresAgregar" id="agregarActoresBtn">Agregar Actores</button>
+        </div>
+      </div>
+
+      <br><br><br>
+      <div class="row">
+        <div class="container">
+          <div id="demoActoresBuscar" class="collapse">
+            <form class="form-horizontal" id="formAgregarPelicula">
+                <div class="form-group">
+                <label class="control-label col-sm-2" for="pwd">Qriterio de busqueda:</label>
+                <div class="col-sm-3">
+                  <select class="form-control" id="campoBuscarActores" name="campoBuscarActores">
+                    <option value="0">Todos los campos</option>
+                    <option value="1">ID</option>
+                    <option value="2">Nombre</option>
+                  </select>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="control-label col-sm-2" for="campoEntradaActores">Busqueda:</label>
+                  <div class="col-sm-3">
+                    <input type="text" class="form-control" id="campoEntradaActores" name="campoEntradaActores" placeholder="">
+                  </div>
+                </div>
+            </form>
+            <div id="resultadoBusquedaActores">
+
+            </div>
+          </div>
+
+          <div id="demoActoresAgregar" class="collapse">
+            <form class="form-horizontal" id="formAgregarPelicua" >
+              <div class="form-group">
+                <label class="control-label col-sm-2" for="nombrePelicula">Nombre:</label>
+                <div class="col-sm-3">
+                  <input type="text" class="form-control" id="nombrePelicula" name="nombrePelicula" maxlength="30">
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="col-sm-offset-2 col-sm-10">
+                 <button type="button" class="btn btn-default" id="agregarPeliculaBtnFin2">Finalizar</button>
+                </div>
+              </div>
+            </form>
+          </div>
+
+          <div id="myModalActores" class="modal fade" role="dialog">
+            <div class="modal-dialog">
+
+              <!-- Modal content-->
+              <div class="modal-content">
+                <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal">&times;</button>
+                  <h4 class="modal-title">Modificar pelicula</h4>
+                </div>
+                <div class="modal-body">
+					<label class="control-label col-sm-2" for="modificaNombrePelicula">Nombre:</label>
+					<input type="text" class="form-control" id="campoModificaNombreActor" name="campoModificanombrePelicula" placeholder="" maxlength="30">
+                    <br>
+                    <button type="button" class="btn btn-default" id="modificaActorFinalBtn">Modifica</button>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+
+	<!-- Audios -->
+    <div id="menu4" class="tab-pane fade">
+      <h3>Gestion de Audios</h3>
+      <p>Eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
+	  <div class="row">
+        <!--buton para buscar usuario-->
+        <div class="col-sm-4">
+          <br>
+          <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#demoAudioBuscar" id="buscarAudioBtn">Buscar Audio</button>
+        </div>
+        <!--//buton para agregar usuario-->
+        <div class="col-sm-4">
+          <br>
+          <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#demoAudioAgregar" id="agregarAudioBtn">Agregar Audio</button>
+        </div>
+      </div>
+
+      <br><br><br>
+	  <div class="row">
+        <div class="container">
+          <div id="demoAudioBuscar" class="collapse">
+            <form class="form-horizontal" id="formAgregarPelicula">
+                <div class="form-group">
+                <label class="control-label col-sm-2" for="pwd">Qriterio de busqueda:</label>
+                <div class="col-sm-3">
+                  <select class="form-control" id="campoBuscarAudios" name="campoBuscarAudios">
+                    <option value="0">Todos los campos</option>
+                    <option value="1">ID</option>
+                    <option value="2">Nombre</option>
+                  </select>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="control-label col-sm-2" for="pwd">Busqueda:</label>
+                  <div class="col-sm-3">
+                    <input type="text" class="form-control" id="campoEntradaAudios" name="campoEntradaAudios" placeholder="">
+                  </div>
+                </div>
+            </form>
+            <div id="resultadoBusquedaAudios">
+
+            </div>
+          </div>
+
+          <div id="demoAudioAgregar" class="collapse">
+            <form class="form-horizontal" id="formAgregarPelicua" >
+              <div class="form-group">
+                <label class="control-label col-sm-2" for="nombrePelicula">Nombre:</label>
+                <div class="col-sm-3">
+                  <input type="text" class="form-control" id="nombrePelicula" name="nombrePelicula" maxlength="30">
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="col-sm-offset-2 col-sm-10">
+                 <button type="button" class="btn btn-default" id="agregarPeliculaBtnFin2">Finalizar</button>
+                </div>
+              </div>
+            </form>
+          </div>
+
+          <div id="myModalAudio" class="modal fade" role="dialog">
+            <div class="modal-dialog">
+
+              <!-- Modal content-->
+              <div class="modal-content">
+                <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal">&times;</button>
+                  <h4 class="modal-title">Modificar pelicula</h4>
+                </div>
+                <div class="modal-body">
+					<label class="control-label col-sm-2" for="modificaNombreAudio">Nombre:</label>
+					<input type="text" class="form-control" id="campoModificaNombreAudio" name="campoModificanombrePelicula" placeholder="" maxlength="30">
+                    <br>
+                    <button type="button" class="btn btn-default" id="modificaAudioFinalBtn">Modifica</button>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        
+		</div>
+      </div>
+    </div>
+
+	
+	<!-- Subtitulos -->
+    <div id="menu5" class="tab-pane fade">
+      <h3>Gestion de Subtitulos</h3>
+      <p>Eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
+      <div class="row">
+        <!--buton para buscar usuario-->
+        <div class="col-sm-4">
+          <br>
+          <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#demoSubtitulosBuscar" id="buscarSubtitulosBtn">Buscar Subtitulos</button>
+        </div>
+        <!--//buton para agregar usuario-->
+        <div class="col-sm-4">
+          <br>
+          <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#demoSubtitulosAgregar" id="agregarSubtitulosBtn">Agregar Subtitulos</button>
+        </div>
+      </div>
+
+      <br><br><br>
+	  <div class="row">
+        <div class="container">
+          <div id="demoSubtitulosBuscar" class="collapse">
+            <form class="form-horizontal" id="formAgregarPelicula">
+                <div class="form-group">
+                <label class="control-label col-sm-2" for="pwd">Qriterio de busqueda:</label>
+                <div class="col-sm-3">
+                  <select class="form-control" id="campoBuscarSubtitulos" name="campoBuscarSubtitulos">
+                    <option value="0">Todos los campos</option>
+                    <option value="1">ID</option>
+                    <option value="2">Nombre</option>
+                  </select>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="control-label col-sm-2" for="pwd">Busqueda:</label>
+                  <div class="col-sm-3">
+                    <input type="text" class="form-control" id="campoEntradaSubtitulos" name="campoEntradaSubtitulos" placeholder="">
+                  </div>
+                </div>
+            </form>
+            <div id="resultadoBusquedaSubtitulos">
+
+            </div>
+          </div>
+
+          <div id="demoSubtitulosAgregar" class="collapse">
+            <form class="form-horizontal" id="formAgregarPelicua" >
+              <div class="form-group">
+                <label class="control-label col-sm-2" for="nombrePelicula">Nombre:</label>
+                <div class="col-sm-3">
+                  <input type="text" class="form-control" id="nombrePelicula" name="nombrePelicula" maxlength="30">
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="col-sm-offset-2 col-sm-10">
+                 <button type="button" class="btn btn-default" id="agregarPeliculaBtnFin2">Finalizar</button>
+                </div>
+              </div>
+            </form>
+          </div>
+
+          <div id="myModalSubtitulos" class="modal fade" role="dialog">
+            <div class="modal-dialog">
+
+              <!-- Modal content-->
+              <div class="modal-content">
+                <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal">&times;</button>
+                  <h4 class="modal-title">Modificar pelicula</h4>
+                </div>
+                <div class="modal-body">
+					<label class="control-label col-sm-2" for="modificaNombrePelicula">Nombre:</label>
+					<input type="text" class="form-control" id="campoModificaNombreSubtitulo" name="campoModificanombrePelicula" placeholder="" maxlength="30">
+                    <br>
+                    <button type="button" class="btn btn-default" id="modificaSubtituloFinalBtn">Modifica</button>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        
+		</div>
+      </div>
+    </div>
+
+
+	<!-- Formatos -->
+	<div id="menu6" class="tab-pane fade">
+      <h3>Gestion de Formatos</h3>
+      <p>Eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
+      <div class="row">
+        <!--buton para buscar usuario-->
+        <div class="col-sm-4">
+          <br>
+          <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#demoFormatosBuscar" id="buscarFormatosBtn">Buscar Formatos</button>
+        </div>
+        <!--//buton para agregar usuario-->
+        <div class="col-sm-4">
+          <br>
+          <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#demoFormatosAgregar" id="agregarFormatosBtn">Agregar Formatos</button>
+        </div>
+      </div>
+
+      <br><br><br>
+	  <div class="row">
+        <div class="container">
+          <div id="demoFormatosBuscar" class="collapse">
+            <form class="form-horizontal" id="formAgregarPelicula">
+                <div class="form-group">
+                <label class="control-label col-sm-2" for="pwd">Qriterio de busqueda:</label>
+                <div class="col-sm-3">
+                  <select class="form-control" id="campoBuscarFormatos" name="campoBuscarFormatos">
+                    <option value="0">Todos los campos</option>
+                    <option value="1">ID</option>
+                    <option value="2">Nombre</option>
+                  </select>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="control-label col-sm-2" for="pwd">Busqueda:</label>
+                  <div class="col-sm-3">
+                    <input type="text" class="form-control" id="campoEntradaFormatos" name="campoEntradaFormatos" placeholder="">
+                  </div>
+                </div>
+            </form>
+            <div id="resultadoBusquedaFormatos">
+
+            </div>
+          </div>
+
+          <div id="demoFormatosAgregar" class="collapse">
+            <form class="form-horizontal" id="formAgregarPelicua" >
+              <div class="form-group">
+                <label class="control-label col-sm-2" for="nombrePelicula">Nombre:</label>
+                <div class="col-sm-3">
+                  <input type="text" class="form-control" id="nombrePelicula" name="nombrePelicula" maxlength="30">
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="col-sm-offset-2 col-sm-10">
+                 <button type="button" class="btn btn-default" id="agregarPeliculaBtnFin2">Finalizar</button>
+                </div>
+              </div>
+            </form>
+          </div>
+
+          <div id="myModalFormatos" class="modal fade" role="dialog">
+            <div class="modal-dialog">
+
+              <!-- Modal content-->
+              <div class="modal-content">
+                <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal">&times;</button>
+                  <h4 class="modal-title">Modificar pelicula</h4>
+                </div>
+                <div class="modal-body">
+					<label class="control-label col-sm-2" for="modificaNombrePelicula">Nombre:</label>
+					<input type="text" class="form-control" id="campoModificaNombreFormato" name="campoModificanombrePelicula" placeholder="" maxlength="30">
+                    <br>
+                    <button type="button" class="btn btn-default" id="modificaFormatoFinalBtn">Modifica</button>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        
+		</div>
+      </div>
+    </div>
+
+
+	<!-- Cuentas -->
+	<div id="menu7" class="tab-pane fade">
+      <h3>Gestion de Cuentas</h3>
+      <p>Eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
+      <div class="row">
+        <!--buton para buscar usuario-->
+        <div class="col-sm-4">
+          <br>
+          <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#demoCuentaBuscar" id="buscarCuentaBtn">Buscar Cuentas</button>
+        </div>
+        <!--//buton para agregar usuario-->
+        <div class="col-sm-4">
+          <br>
+          <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#demoCuentaAgregar" id="agregarCuentaBtn">Agregar Cuentas</button>
+        </div>
+      </div>
+
+      <br><br><br>
+	  <div class="row">
+        <div class="container">
+          <div id="demoCuentaBuscar" class="collapse">
+            <form class="form-horizontal" id="formAgregarPelicula">
+                <div class="form-group">
+                <label class="control-label col-sm-2" for="campoBuscarCuantas">Qriterio de busqueda:</label>
+                <div class="col-sm-3">
+                  <select class="form-control" id="campoBuscarCuantas" name="campoBuscarCuantas">
+                    <option value="0">Todos los campos</option>
+                    <option value="1">ID</option>
+                    <option value="2">Nombre</option>
+                    <option value="3">Email</option>
+                    <option value="4">Telefono</option>
+                  </select>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="control-label col-sm-2" for="campoEntradaCuenta">Busqueda:</label>
+                  <div class="col-sm-3">
+                    <input type="text" class="form-control" id="campoEntradaCuenta" name="campoEntradaCuenta" placeholder="">
+                  </div>
+                </div>
+            </form>
+            <div id="resultadoBusquedaCuentas">
+
+            </div>
+          </div>
+
+          <div id="demoCuentaAgregar" class="collapse">
+            <form class="form-horizontal" id="formAgregarPelicua" >
+              <div class="form-group">
+                <label class="control-label col-sm-2" for="nombrePelicula">Nombre:</label>
+                <div class="col-sm-3">
+                  <input type="text" class="form-control" id="nombrePelicula" name="nombrePelicula" maxlength="30">
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="col-sm-offset-2 col-sm-10">
+                 <button type="button" class="btn btn-default" id="agregarPeliculaBtnFin2">Finalizar</button>
+                </div>
+              </div>
+            </form>
+          </div>
+
+          <div id="myModalCuenta" class="modal fade" role="dialog">
+            <div class="modal-dialog">
+
+              <!-- Modal content-->
+              <div class="modal-content">
+                <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal">&times;</button>
+                  <h4 class="modal-title">Modificar cuenta</h4>
+                </div>
+                <div class="modal-body">
+					<label class="control-label col-sm-2" for="modificaNombreCuenta">Nombre:</label>
+					<input type="text" class="form-control" id="campoModificaNombreCuenta" name="campoModificanombrePelicula" placeholder="" maxlength="30">
+                    
+					<label class="control-label col-sm-2" for="modificaEmailCuenta">Email:</label>
+					<input type="text" class="form-control" id="campoModificaEmailCuenta" name="campoModificanombrePelicula" placeholder="" maxlength="30">
+                    
+					<label class="control-label col-sm-2" for="modificaTelefonoCuenta">Telefono:</label>
+					<input type="text" class="form-control" id="campoModificaTelefonoCuenta" name="campoModificanombrePelicula" placeholder="" maxlength="30">
+                    
+					<br>
+                    <button type="button" class="btn btn-default" id="modificaCuentaFinalBtn">Modifica</button>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        
+		</div>
+      </div>
+    </div>
+
+
+	<!-- Planes -->
+	<div id="menu8" class="tab-pane fade">
+      <h3>Gestion de Planes</h3>
+      <p>Eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
+      <div class="row">
+        <!--buton para buscar usuario-->
+        <div class="col-sm-4">
+          <br>
+          <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#demoPlanesBuscar" id="buscarPlanesBtn">Buscar Planes</button>
+        </div>
+        <!--//buton para agregar usuario-->
+        <div class="col-sm-4">
+          <br>
+          <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#demoPlanesAgregar" id="agregarPlanesBtn">Agregar Planes</button>
+        </div>
+      </div>
+
+      <br><br><br>
+	  <div class="row">
+        <div class="container">
+          <div id="demoPlanesBuscar" class="collapse">
+            <form class="form-horizontal" id="formAgregarPelicula">
+                <div class="form-group">
+                <label class="control-label col-sm-2" for="pwd">Qriterio de busqueda:</label>
+                <div class="col-sm-3">
+                  <select class="form-control" id="campoBuscarPlan" name="campoBuscarPlan">
+                    <option value="0">Todos los campos</option>
+                    <option value="1">ID</option>
+                    <option value="2">Nombre</option>
+                  </select>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="control-label col-sm-2" for="campoEntradaPlan">Busqueda:</label>
+                  <div class="col-sm-3">
+                    <input type="text" class="form-control" id="campoEntradaPlan" name="campoEntradaPlan" placeholder="">
+                  </div>
+                </div>
+            </form>
+            <div id="resultadoBusquedaPlanes">
+
+            </div>
+          </div>
+
+          <div id="demoPlanesAgregar" class="collapse">
+            <form class="form-horizontal" id="formAgregarPelicua" >
+              <div class="form-group">
+                <label class="control-label col-sm-2" for="nombrePelicula">Nombre:</label>
+                <div class="col-sm-3">
+                  <input type="text" class="form-control" id="nombrePelicula" name="nombrePelicula" maxlength="30">
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="col-sm-offset-2 col-sm-10">
+                 <button type="button" class="btn btn-default" id="agregarPeliculaBtnFin2">Finalizar</button>
+                </div>
+              </div>
+            </form>
+          </div>
+
+          <div id="myModalPlanes" class="modal fade" role="dialog">
+            <div class="modal-dialog">
+
+              <!-- Modal content-->
+              <div class="modal-content">
+                <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal">&times;</button>
+                  <h4 class="modal-title">Modificar pelicula</h4>
+                </div>
+                <div class="modal-body">
+					<label class="control-label col-sm-2" for="modificaNombrePlan">Nombre:</label>
+					<input type="text" class="form-control" id="campoModificaNombrePlan" name="campoModificanombrePelicula" placeholder="" maxlength="30">
+                    
+					<label class="control-label col-sm-2" for="modificaNombrePelicul">Precio:</label>
+					<input type="text" class="form-control" id="campoModificaPrecioPlan" name="campoModificanombrePelicula" placeholder="" maxlength="30">
+                    
+					<br>
+                    <button type="button" class="btn btn-default" id="modificaPlanesFinalBtn">Modifica</button>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        
+		</div>
+      </div>
+    </div>
+
+
+	<!-- Tipos de cuentas -->
+	<div id="menu9" class="tab-pane fade">
+      <h3>Gestion de tipos de cuentas</h3>
+      <p>Eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
+      <div class="row">
+        <!--buton para buscar usuario-->
+        <div class="col-sm-4">
+          <br>
+          <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#demoTiposCuentasBuscar" id="buscarTiposCuentasBtn">Buscar Tipos de Cuentas</button>
+        </div>
+        <!--//buton para agregar usuario-->
+        <div class="col-sm-4">
+          <br>
+          <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#demoTiposCuentasgregar" id="agregarTiposCuentasBtn">Agregar Tipos de Cuentas</button>
+        </div>
+      </div>
+
+      <br><br><br>
+	  <div class="row">
+        <div class="container">
+          <div id="demoTiposCuentasBuscar" class="collapse">
+            <form class="form-horizontal" id="formAgregarPelicula">
+                <div class="form-group">
+                <label class="control-label col-sm-2" for="campoBuscarTipoCuenta">Qriterio de busqueda:</label>
+                <div class="col-sm-3">
+                  <select class="form-control" id="campoBuscarTipoCuenta" name="campoBuscarTipoCuenta">
+                    <option value="0">Todos los campos</option>
+                    <option value="1">ID</option>
+                    <option value="2">Nombre</option>
+                  </select>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="control-label col-sm-2" for="campoEntradaTipoCuenta">Busqueda:</label>
+                  <div class="col-sm-3">
+                    <input type="text" class="form-control" id="campoEntradaTipoCuenta" name="campoEntradaTipoCuenta" placeholder="">
+                  </div>
+                </div>
+            </form>
+            <div id="resultadoBusquedaTipoCuenta">
+
+            </div>
+          </div>
+
+          <div id="demoTiposCuentasAgregar" class="collapse">
+            <form class="form-horizontal" id="formAgregarPelicua" >
+              <div class="form-group">
+                <label class="control-label col-sm-2" for="nombrePelicula">Nombre:</label>
+                <div class="col-sm-3">
+                  <input type="text" class="form-control" id="nombrePelicula" name="nombrePelicula" maxlength="30">
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="col-sm-offset-2 col-sm-10">
+                 <button type="button" class="btn btn-default" id="agregarPeliculaBtnFin2">Finalizar</button>
+                </div>
+              </div>
+            </form>
+          </div>
+
+          <div id="myModalTiposCuentas" class="modal fade" role="dialog">
+            <div class="modal-dialog">
+
+              <!-- Modal content-->
+              <div class="modal-content">
+                <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal">&times;</button>
+                  <h4 class="modal-title">Modificar pelicula</h4>
+                </div>
+                <div class="modal-body">
+					<label class="control-label col-sm-2" for="modificaNombrePelicula">Nombre:</label>
+					<input type="text" class="form-control" id="campoModificaNombreTipoCuenta" name="campoModificanombrePelicula" placeholder="" maxlength="30">
+                    <br>
+                    <button type="button" class="btn btn-default" id="modificaTipoCuentaFinalBtn">Modifica</button>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+  </div>
+</div>
+
+
+<script type="text/javascript" src="buscarPeliculas.js"></script>
+<script type="text/javascript" src="buscarGeneros.js"></script>
+<script type="text/javascript" src="buscarActores.js"></script>
+<script type="text/javascript" src="buscarAudios.js"></script>
+<script type="text/javascript" src="buscarSubtitulos.js"></script>
+<script type="text/javascript" src="buscarFormatos.js"></script>
+
+
+
+
+<script type="text/javascript" src="buscarCuentas.js"></script>
+<script type="text/javascript" src="buscarPlanes.js"></script>
+<script type="text/javascript" src="buscarTiposCuenta.js"></script>
+
+
+<!--
+<script type="text/javascript" src="agregarEmpleado.js"></script>
+<script type="text/javascript" src="buscarEmpleados.js"></script>
+
+<script type="text/javascript" src="agregarUsuario.js"></script>
+<script type="text/javascript" src="buscarUsuarios.js"></script>
+
+<script type="text/javascript" src="agregarPelicula.js"></script>
+<script type="text/javascript" src="buscarPeliculas.js"></script>
+
+<script type="text/javascript" src="agregarPaquete.js"></script>
+<script type="text/javascript" src="buscarPaquetes.js"></script>
+
+<script type="text/javascript" src="agregarProducto.js"></script>
+<script type="text/javascript" src="buscarProductos.js"></script>
+-->
+
+</body>
+</html>
